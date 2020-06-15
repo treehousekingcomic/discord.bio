@@ -188,26 +188,6 @@ class Bio(commands.Cog):
             embed.set_footer(text = "This bot is not part of discord.bio or Discord, but rather an application based around both.")
             await ctx.send(embed = embed)
     
-    @commands.command()
-    async def leaderboard(self, ctx):
-        """
-        View the top ten people on the leaderboard upvote wise.
-        """
-        async with aiohttp.ClientSession() as session:
-            async with session.get("https://api.discord.bio/v1/topUpvoted") as resp:
-                if resp.status == 200:
-                    data = await resp.text()
-                    data = json.loads(data)
-        embed = discord.Embed(
-                color = Config.MAINCOLOR
-        )
-        embed.set_author(name = "Leaderboard")
-        embed.set_footer(text = "This bot is not part of discord.bio or Discord, but rather an application based around both.")
-        number = 1
-        for profile in data:
-            embed.add_field(name = f"Number {number}", value = f"[{profile['user']['name'].title()}](https://discord.bio/p/{profile['user']['name']}) with {profile['user']['upvotes']} Upvotes")
-            number += 1
-        await ctx.send(embed = embed)
         
 
 def setup(bot):
