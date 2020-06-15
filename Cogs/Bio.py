@@ -2,15 +2,9 @@
 import asyncio
 import datetime
 import json
-import logging
-import random
-
 import aiohttp
 import discord
 from discord.ext import commands
-
-import Config
-
 
 class Bio(commands.Cog):
 
