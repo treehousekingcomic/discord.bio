@@ -59,22 +59,19 @@ class Bio(commands.Cog):
             if profile == ctx.author.id:
                 embed = discord.Embed(
                         title = "Profile Not Found",
-                        description = "You don't have a profile set up on [discord.bio](https://discord.bio/), please set one up and then try again!",
-                        color = Config.ERRORCOLOR
+                        description = "You don't have a profile set up on [discord.bio](https://discord.bio/), please set one up and then try again!"
                 )
                 await ctx.send(embed = embed)
             else:
                 embed = discord.Embed(
                         title = "Profile Not Found",
-                        description = "Profile not found, please enter a valid user ID or slug!",
-                        color = Config.ERRORCOLOR
+                        description = "Profile not found, please enter a valid user ID or slug!"ERRORCOLOR
                 )
                 await ctx.send(embed = embed)
         else:
             embed = discord.Embed(
                     title = "Slug: " + data1["payload"]["settings"]["name"],
-                    url = f"https://discord.bio/p/{data1['payload']['settings']['name']}",
-                    color = Config.MAINCOLOR
+                    url = f"https://discord.bio/p/{data1['payload']['settings']['name']}"
             )
             embed.set_author(name = "Profile")
             async with aiohttp.ClientSession() as session:
